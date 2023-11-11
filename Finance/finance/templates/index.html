@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <table class = "table">
+        <thead>
+            <tr scope="col">
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if table %}
+                {% for stock in table %}
+                <tr>
+                    <td>
+                        {{ stock.Symbol }}
+                    </td>
+                    <td>
+                        {{ stock.Shares }}
+                    </td>
+                    <td>
+                        {{ stock.Price | usd}}
+                    </td>
+                    <td>
+                        {{ stock.Total | usd}}
+                    </td>
+                </tr>
+                {% endfor %}
+            {% endif %}
+            <tr class="table-active">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>CASH: {{ user  | usd}}</td>
+            </tr>
+            <tr class="table-active">
+                <td></td>
+                <td></td>
+                <td></td>
+                {% if table %}
+                <td>TOTAL: {{ stocks_cash | usd}}</td>
+                {% else %}
+                <td>TOTAL: {{ user | usd }}</td>
+                {% endif  %}
+            </tr>
+            <tr class="table-active">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                <form action="/cash">
+                    <button class="btn btn-primary" type="submit">
+                        Add Cash
+                    </button>
+                </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
