@@ -1,2 +1,2 @@
 # Finance
-Webpage where a registered user can buy and sell stocks with updated stock prices.
+I developed a finance-themed webpage allowing registered users to engage in buying and selling stocks with real-time stock price updates. The implementation utilized Flask in Python for effective manipulation of the webpage. User actions were seamlessly integrated into SQL databases, ensuring the databases reflected the most current information. Additionally, Jinja was employed to optimize the HTML structure, enhancing the overall efficiency and user experience of the webpage.
